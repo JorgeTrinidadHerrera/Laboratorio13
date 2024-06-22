@@ -28,7 +28,7 @@ namespace Laboratorio13.Controllers
           {
               return NotFound();
           }
-            return await _context.Grades.Where(i => i.Activo == true).ToListAsync();
+            return await _context.Grades.Where(i => i.Active == true).ToListAsync();
         }
 
         // GET: api/Grades/5
@@ -41,7 +41,7 @@ namespace Laboratorio13.Controllers
           }
             var grade = await _context.Grades.FindAsync(id);
 
-            if (grade == null || grade.Activo == false)
+            if (grade == null || grade.Active == false)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace Laboratorio13.Controllers
                 return NotFound();
             }
 
-            grade.Activo = false;
+            grade.Active = false;
             await _context.SaveChangesAsync();
 
             return NoContent();

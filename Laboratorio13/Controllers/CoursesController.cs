@@ -28,7 +28,7 @@ namespace Laboratorio13.Controllers
           {
               return NotFound();
           }
-            return await _context.Courses.Where(i=>i.Activo==true).ToListAsync();
+            return await _context.Courses.Where(i=>i.Active==true).ToListAsync();
         }
 
         // GET: api/Courses/5
@@ -41,7 +41,7 @@ namespace Laboratorio13.Controllers
           }
             var course = await _context.Courses.FindAsync(id);
 
-            if (course == null || course.Activo == false)
+            if (course == null || course.Active == false)
             {
                 return NotFound();
             }
@@ -109,7 +109,7 @@ namespace Laboratorio13.Controllers
                 return NotFound();
             }
 
-            course.Activo = false;
+            course.Active = false;
             await _context.SaveChangesAsync();
 
             return NoContent();

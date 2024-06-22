@@ -4,6 +4,7 @@ using Laboratorio13.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Laboratorio13.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20240622193522_v1_ se creo la base de datos")]
+    partial class v1_secreolabasededatos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,11 +33,12 @@ namespace Laboratorio13.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseId"));
 
-                    b.Property<bool>("Active")
+                    b.Property<bool>("Activo")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Credit")
-                        .HasColumnType("int");
+                    b.Property<string>("Credit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -82,7 +86,7 @@ namespace Laboratorio13.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GradeID"));
 
-                    b.Property<bool>("Active")
+                    b.Property<bool>("Activo")
                         .HasColumnType("bit");
 
                     b.Property<string>("Description")
