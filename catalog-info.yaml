@@ -5,7 +5,7 @@ metadata:
   description: notificaciones
   links:
     - url: https://app.swaggerhub.com/apis/UTP-Xpedition/A200-MS-USER/1.0.0
-      tittle: Api en Swaggerhub
+      title: Api en Swaggerhub
   tags:
     - openapi
     - users
